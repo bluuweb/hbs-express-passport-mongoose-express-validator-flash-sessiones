@@ -1,0 +1,20 @@
+{
+    "name": "hbs-1-shorturl",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon index.js",
+        "start": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "nodemon": "^2.0.15"
+    },
+    "dependencies": {
+        "express": "^4.17.3",
+        "express-handlebars": "^6.0.2"
+    }
+}
