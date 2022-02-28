@@ -1,0 +1,37 @@
+<h1 class="text-center my-5">Registro de usuarios nuevos</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <form action="/auth/register" method="post">
+            <input
+                class="form-control mb-2"
+                name="userName"
+                placeholder="ingrese nombre"
+                type="text"
+                value="bluuweb"
+            >
+            <input
+                class="form-control mb-2"
+                name="email"
+                placeholder="ingrese email"
+                type="text"
+                value="bluuweb@test.com"
+            >
+            <input
+                class="form-control mb-2"
+                name="password"
+                placeholder="ingrese password"
+                type="password"
+                value="123123"
+            >
+            <input
+                class="form-control mb-2"
+                name="repassword"
+                placeholder="repita password"
+                type="password"
+                value="123123"
+            >
+            <button class="btn btn-primary" type="submit">Registrar usuario</button>
+        </form>
+    </div>
+</div>
