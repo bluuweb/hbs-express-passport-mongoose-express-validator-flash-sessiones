@@ -3,6 +3,7 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
         <form action="/auth/register" method="post">
+            <input type="hidden" name="_csrf" value="{{csrfToken}}" />
             <input
                 class="form-control mb-2"
                 name="userName"

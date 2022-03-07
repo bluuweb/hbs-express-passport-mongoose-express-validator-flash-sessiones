@@ -1,9 +1,11 @@
 const express = require("express");
 const session = require("express-session");
+//const MongoStore = require('connect-mongo');
 const flash = require("connect-flash");
 const passport = require("passport");
 const { create } = require("express-handlebars");
-const req = require("express/lib/request");
+const csrf = require("csurf");
+
 const User = require("./models/User");
 require("dotenv").config();
 require("./database/db");
@@ -16,6 +18,7 @@ app.use(
         resave: false,
         saveUninitialized: false,
         name: "secret-name-blablabal",
+        //store: MongoStore.create(options)
     })
 );
 app.use(flash());
@@ -28,7 +31,6 @@ passport.serializeUser((user, done) =>
     done(null, { id: user._id, userName: user.userName })
 ); //req.user
 passport.deserializeUser(async (user, done) => {
-    // es necesario revisar la base de dato???
     const userDB = await User.findById(user.id);
     return done(null, { id: userDB._id, userName: userDB.userName });
 });
@@ -44,6 +46,15 @@ app.set("views", "./views");
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
+
+app.use(csrf());
+
+app.use((req, res, next) => {
+    res.locals.csrfToken = req.csrfToken();
+    res.locals.mensajes = req.flash("mensajes");
+    next();
+});
+
 app.use("/", require("./routes/home"));
 app.use("/auth", require("./routes/auth"));
 

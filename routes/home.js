@@ -13,10 +13,10 @@ const verficarUser = require("../middlewares/verficarUser");
 const router = express.Router();
 
 router.get("/", verficarUser, leerUrls);
-router.post("/", urlValidar, agregarUrl);
-router.get("/eliminar/:id", eliminarUrl);
-router.get("/editar/:id", editarUrlForm);
-router.post("/editar/:id", urlValidar, editarUrl);
+router.post("/", verficarUser, urlValidar, agregarUrl);
+router.get("/eliminar/:id", verficarUser, eliminarUrl);
+router.get("/editar/:id", verficarUser, editarUrlForm);
+router.post("/editar/:id", verficarUser, urlValidar, editarUrl);
 router.get("/:shortURL", redireccionamiento);
 
 module.exports = router;
