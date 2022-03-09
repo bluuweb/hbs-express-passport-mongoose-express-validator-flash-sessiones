@@ -39,7 +39,7 @@ const registerUser = async (req, res) => {
         });
 
         await transport.sendMail({
-            from: '"Fred Foo 👻" <foo@example.com>', // sender address
+            from: '"🙌" twitch@ignaciogutierrez.cl', // sender address
             to: user.email, // list of receivers
             subject: "Verifica tu cuenta de correo", // Subject line
             html: `<a href="${
