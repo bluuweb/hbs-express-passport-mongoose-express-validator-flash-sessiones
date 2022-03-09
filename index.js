@@ -32,7 +32,7 @@ app.use(
             dbName: process.env.DBNAME,
         }),
         cookie: {
-            secure: process.env.MODO === "production",
+            // secure: process.env.MODO === "production",
             maxAge: 30 * 24 * 60 * 60 * 1000,
         },
     })
